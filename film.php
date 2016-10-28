@@ -26,26 +26,26 @@
                         <fieldset>
                             <legend>Nhập thông tin về phim</legend>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Tên phim</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Tên phim</label>
+                                <div class="col-lg-6">
                                     <input class="form-control" id="film_title" placeholder="Nhập tên phim" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Năm phát hành</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Năm phát hành</label>
+                                <div class="col-lg-6">
                                     <input class="form-control" name="release_year" placeholder="Nhập năm phát hành" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Mô tả</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Mô tả</label>
+                                <div class="col-lg-6">
                                     <textarea class="form-control" rows="3" name="description"></textarea>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Quốc gia</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Quốc gia</label>
+                                <div class="col-lg-6">
                                     <select class="form-control" name="country">
                                         <option>Mỹ</option>
                                         <option>Việt Name</option>
@@ -53,8 +53,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Ngôn ngữ</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Ngôn ngữ</label>
+                                <div class="col-lg-6">
                                     <select class="form-control" name="language">
                                         <option>TIếng Anh</option>
                                         <option>Tiếng Việt</option>
@@ -62,8 +62,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Ngôn ngữ gốc</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Ngôn ngữ gốc</label>
+                                <div class="col-lg-6">
                                     <select class="form-control" name="original_language">
                                         <option>TIếng Anh</option>
                                         <option>Tiếng Việt</option>
@@ -71,8 +71,8 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Xếp loại theo độ tuổi</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Xếp loại theo độ tuổi</label>
+                                <div class="col-lg-6">
                                     <div class="radio radio-inline">
                                         <label>
                                             <input name="rating" value="g" checked="" type="radio">
@@ -106,31 +106,31 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Thời lượng (phút)</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Thời lượng (phút)</label>
+                                <div class="col-lg-6">
                                     <input class="form-control" name="duration" placeholder="Nhập thời lượng phim" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Thời hạn mượn (ngày)</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Thời hạn mượn (ngày)</label>
+                                <div class="col-lg-6">
                                     <input class="form-control" name="rental_duration" placeholder="Nhập thời gian cho phép trong một lần mượn" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Giá đơn vị</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Giá đơn vị</label>
+                                <div class="col-lg-6">
                                     <input class="form-control" name="rental_rate" placeholder="Nhập số tiền cho mỗi ngày mượn" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label class="col-lg-2 control-label">Giá thay thế</label>
-                                <div class="col-lg-10">
+                                <label class="col-lg-3 control-label">Giá thay thế</label>
+                                <div class="col-lg-6">
                                     <input class="form-control" name="replacement_cost" placeholder="Nhập số tiền thay thế nếu làm mất đĩa" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
-                                <div class="col-lg-10 col-lg-offset-2">
+                                <div class="col-lg-6 col-lg-offset-3">
                                     <button type="reset" class="btn btn-default">Hủy</button>
                                     <button type="submit" class="btn btn-primary">Thêm</button>
                                 </div>
