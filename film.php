@@ -22,13 +22,13 @@
             <!-- content -->
         <div class="col-lg-9">
                 <div class="well bs-component">
-                    <form class="form-horizontal">
+                    <form action="add_film.php" class="form-horizontal" method="post">
                         <fieldset>
                             <legend>Nhập thông tin về phim</legend>
                             <div class="form-group">
                                 <label class="col-lg-3 control-label">Tên phim</label>
                                 <div class="col-lg-6">
-                                    <input class="form-control" id="film_title" placeholder="Nhập tên phim" type="text">
+                                    <input class="form-control" name="film_title" id="film_title" placeholder="Nhập tên phim" type="text">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -47,8 +47,8 @@
                                 <label class="col-lg-3 control-label">Quốc gia</label>
                                 <div class="col-lg-6">
                                     <select class="form-control" name="country">
-                                        <option>Mỹ</option>
-                                        <option>Việt Name</option>
+                                        <option value="1">Mỹ</option>
+                                        <option value="2">Việt Name</option>
                                     </select>
                                 </div>
                             </div>
@@ -56,8 +56,8 @@
                                 <label class="col-lg-3 control-label">Ngôn ngữ</label>
                                 <div class="col-lg-6">
                                     <select class="form-control" name="language">
-                                        <option>TIếng Anh</option>
-                                        <option>Tiếng Việt</option>
+                                        <option value="1">TIếng Anh</option>
+                                        <option value="2">Tiếng Việt</option>
                                     </select>
                                 </div>
                             </div>
@@ -65,8 +65,8 @@
                                 <label class="col-lg-3 control-label">Ngôn ngữ gốc</label>
                                 <div class="col-lg-6">
                                     <select class="form-control" name="original_language">
-                                        <option>TIếng Anh</option>
-                                        <option>Tiếng Việt</option>
+                                        <option value="1">TIếng Anh</option>
+                                        <option value="2">Tiếng Việt</option>
                                     </select>
                                 </div>
                             </div>
@@ -75,31 +75,31 @@
                                 <div class="col-lg-6">
                                     <div class="radio radio-inline">
                                         <label>
-                                            <input name="rating" value="g" checked="" type="radio">
+                                            <input name="rating" value="1" checked="" type="radio">
                                             G
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
-                                            <input name="rating" value="pg" type="radio">
+                                            <input name="rating" value="2" type="radio">
                                             PG
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
-                                            <input name="rating" value="pg-13" type="radio">
+                                            <input name="rating" value="3" type="radio">
                                             PG-13
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
-                                            <input name="rating" value="r" type="radio">
+                                            <input name="rating" value="4" type="radio">
                                             R
                                         </label>
                                     </div>
                                     <div class="radio radio-inline">
                                         <label>
-                                            <input name="rating" value="nc-17" type="radio">
+                                            <input name="rating" value="5" type="radio">
                                             NC-17
                                         </label>
                                     </div>
