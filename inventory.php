@@ -1,3 +1,8 @@
+<?php
+  require_once "dbconfig.php";
+    $query="SELECT * FROM phim";
+    $result = $database->query($query);
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -22,7 +27,7 @@
             <!-- content -->
             <div class="col-lg-9">
                 <div class="bs-component">
-                    <a href="film.php?new" class="btn btn-primary pull-right">Thêm phim</a>
+                    <a href="film.php?action=add" class="btn btn-primary pull-right">Thêm phim</a>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
@@ -36,32 +41,28 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>Đi tìm Dory</td>
-                                <td>Hoạt hình, Hài hước</td>
-                                <td>2016</td>
-                                <td>0.99</td>
-                                <td>PG</td>
-                                <td>30</td>
-                                <td>
-                                    <a href="#"><span class="fa fa-edit"></span></a>
+                            <?php
+                              while ($row=$result->fetch_assoc()){
+                                echo "<tr>";
+                                echo "<td>$row[Ten]</td>";
+                                echo "<td>";
+                                $theLoaiList=$database->query("select `the_loai`.`Ten` FROM `phim_theloai` INNER JOIN `the_loai` ON `phim_theloai`.`MaTL` = `the_loai`.`MaTL` WHERE `phim_theloai`.`MaPhim` = $row[MaPhim];");
+                                while ($theLoai = $theLoaiList->fetch_assoc()){
+                                  echo $theLoai['Ten']."; ";
+                                }
+                                echo "</td>";
+                                echo "<td>$row[NamPhatHanh]</td>";
+                                echo "<td>$row[GiaDonVi]</td>";
+                                $xepLoaiList=$database->query("SELECT * FROM xep_loai WHERE MaXL = $row[XepLoai]");
+                                echo "<td>".$xepLoaiList->fetch_assoc()['Ten']."</td>";
+                                echo "<td>".rand(20,100)."</td>";
+                                echo '<td>
+                                    <a href="film.php?action=edit&maphim='.$row["MaPhim"].'"><span class="fa fa-edit"></span></a>
                                     &nbsp&nbsp
-                                    <a href="#"><span class="fa fa-trash"></span></a>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>Đi tìm Dory</td>
-                                <td>Hoạt hình, Hài hước</td>
-                                <td>2016</td>
-                                <td>0.99</td>
-                                <td>PG</td>
-                                <td>30</td>
-                                <td>
-                                    <a href="#"><span class="fa fa-edit"></span></a>
-                                    &nbsp&nbsp
-                                    <a href="#"><span class="fa fa-trash"></span></a>
-                                </td>
-                            </tr>
+                                    <a href=""><span class="fa fa-trash"></span></a>
+                                </td>';
+                              }
+                            ?>
                         </tbody>
                     </table>
             </div>
