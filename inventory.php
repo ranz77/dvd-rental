@@ -2,6 +2,7 @@
   require_once "dbconfig.php";
     $query="SELECT * FROM phim";
     $result = $database->query($query);
+    $maPhim = isset($_GET['maphim'])? $_GET['maphim']:0;
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -27,42 +28,38 @@
             <!-- content -->
             <div class="col-lg-9">
                 <div class="bs-component">
-                    <a href="film.php?action=add" class="btn btn-primary pull-right">Thêm phim</a>
+                    <div class="row">
+                      <div class="pull-right">
+                        <form class="form-inline" action="#" method="post" class="">
+                          <div class="form-group">
+                            <input type="number" placeholder="Nhập số lượng đĩa" class="form-control" id="quantity" name="quantity"/>
+                          </div>
+                          <button class="btn btn-primary">Thêm</button>
+                        </form>
+                      </div>
+                    </div>
                     <table class="table table-striped table-hover">
                         <thead>
                             <tr>
-                                <th>Tên phim</th>
-                                <th>Thể loại</th>
-                                <th>Năm phát hành</th>
-                                <th>Giá mượn</th>
-                                <th>Phân loại</th>
-                                <th>Số lượng đĩa</th>
+                                <th>Mã đĩa phim</th>
+                                <th>Mã phim</th>
+                                <th>Trạng thái</th>
+                                <th>Mã Cửa Hàng</th>
                                 <th>Tùy chọn</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <?php
-                              while ($row=$result->fetch_assoc()){
-                                echo "<tr>";
-                                echo "<td>$row[Ten]</td>";
-                                echo "<td>";
-                                $theLoaiList=$database->query("select `the_loai`.`Ten` FROM `phim_theloai` INNER JOIN `the_loai` ON `phim_theloai`.`MaTL` = `the_loai`.`MaTL` WHERE `phim_theloai`.`MaPhim` = $row[MaPhim];");
-                                while ($theLoai = $theLoaiList->fetch_assoc()){
-                                  echo $theLoai['Ten']."; ";
-                                }
-                                echo "</td>";
-                                echo "<td>$row[NamPhatHanh]</td>";
-                                echo "<td>$row[GiaDonVi]</td>";
-                                $xepLoaiList=$database->query("SELECT * FROM xep_loai WHERE MaXL = $row[XepLoai]");
-                                echo "<td>".$xepLoaiList->fetch_assoc()['Ten']."</td>";
-                                echo "<td>".rand(20,100)."</td>";
-                                echo '<td>
-                                    <a href="film.php?action=edit&maphim='.$row["MaPhim"].'"><span class="fa fa-edit"></span></a>
-                                    &nbsp&nbsp
-                                    <a href=""><span class="fa fa-trash"></span></a>
-                                </td>';
+                          <?php
+                            $listFilm = $database->query("SELECT * FROM dia_phim WHERE MaPhim = $maPhim");
+                            if ($listFilm->num_rows >0)
+                            while ($film = $listFilm->fetch_assoc()){
+                              echo "<tr>";
+                              foreach ($film as $value){
+                                echo "<td>$value</td>";
                               }
-                            ?>
+                              echo "<td>x</td><tr>";
+                            }
+                          ?>
                         </tbody>
                     </table>
             </div>

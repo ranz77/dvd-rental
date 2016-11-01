@@ -5,7 +5,7 @@
 
 	//add
 	$query="INSERT INTO `phim`(`Ten`, `MoTa`, `NamPhatHanh`, `QuocGia`, `NgonNgu`, `NgonNguGoc`, `DoDai`,
-								`GiaDatCoc`, `ThoiHanTra`, `GiaDonVi`, `XepLoai`)
+								`GiaThayThe`, `ThoiHanTra`, `GiaDonVi`, `XepLoai`)
 			VALUES('$film_title', '$description', $release_year, $country, $language, $original_language, $duration,
 					$replacement_cost, $rental_duration, $rental_rate, $rating);";
 	$database->query($query);
