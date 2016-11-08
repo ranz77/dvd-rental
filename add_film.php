@@ -15,5 +15,5 @@
 			$query = "INSERT INTO phim_theloai(`MaPhim`, `MaTL`) VALUES($lastFilmId, $category[$i])";
 			$database->query($query);
 	}
-	header("LOCATION: inventory.php");
+	header("LOCATION: film_list.php");
 ?>

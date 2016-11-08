@@ -1,8 +1,14 @@
 <?php
+  error_reporting(E_ALL);
+  ini_set('display_errors', 1);
+?>
+
+<?php
   require_once "dbconfig.php";
     $query="SELECT * FROM phim";
     $result = $database->query($query);
     $maPhim = isset($_GET['maphim'])? $_GET['maphim']:0;
+    $maCuaHang = isset($_GET['macuahang'])? $_GET['macuahang']:0;
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -30,11 +36,13 @@
                 <div class="bs-component">
                     <div class="row">
                       <div class="pull-right">
-                        <form class="form-inline" action="#" method="post" class="">
+                        <form class="form-inline" action="inventory_action.php" method="post">
                           <div class="form-group">
-                            <input type="number" placeholder="Nhập số lượng đĩa" class="form-control" id="quantity" name="quantity"/>
+			    <input type="hidden" name="maphim" value="<?= $maPhim ?>">
+			    <input type="hidden" name="macuahang" value="<?= $maCuaHang ?>">
+                            <input type="number" placeholder="Nhập số lượng đĩa" class="form-control" name="so_luong_dia"/>
                           </div>
-                          <button class="btn btn-primary">Thêm</button>
+                          <button type="submit" class="btn btn-primary">Thêm</button>
                         </form>
                       </div>
                     </div>
@@ -54,7 +62,12 @@
                             if ($listFilm->num_rows >0)
                             while ($film = $listFilm->fetch_assoc()){
                               echo "<tr>";
-                              foreach ($film as $value){
+                              foreach ($film as $key => $value){
+				if ($key == "TrangThai") {
+				  if ($value == 0){
+				    echo "<td>Có sẵn</td>";
+				  } else echo "<td>Đã mượn</td>";
+				} else
                                 echo "<td>$value</td>";
                               }
                               echo "<td>x</td><tr>";

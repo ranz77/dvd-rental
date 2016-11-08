@@ -55,7 +55,9 @@
                                 echo "<td>$row[GiaDonVi]</td>";
                                 $xepLoaiList=$database->query("SELECT * FROM xep_loai WHERE MaXL = $row[XepLoai]");
                                 echo "<td>".$xepLoaiList->fetch_assoc()['Ten']."</td>";
-                                echo "<td><a href='#'>".rand(20,100)."</a></td>";
+				$query = "SELECT COUNT(*) AS number FROM dia_phim WHERE maphim = $row[MaPhim]";
+				$sl = $database->query($query)->fetch_assoc();
+                                echo "<td><a href='inventory.php?maphim=$row[MaPhim]&macuahang=1'>".$sl['number']."</a></td>";
                                 echo '<td>
                                     <a href="film.php?action=edit&maphim='.$row["MaPhim"].'"><span class="fa fa-edit"></span></a>
                                     &nbsp&nbsp

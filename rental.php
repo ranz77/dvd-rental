@@ -51,37 +51,37 @@
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Mã đĩa phim</label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="inventory_id" placeholder="Nhập mã đĩa phim">
+                                <input type="text" class="form-control" id="inventory_id" name="inventory_id" placeholder="Nhập mã đĩa phim">
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Tên phim</label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="film_name" disabled>
+                                <input type="text" class="form-control" id="film_name" name="film_name" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Năm phát hành</label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="film_release_date" disabled>
+                                <input type="text" class="form-control" id="film_release_date" name="film_release_date" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Xếp loại độ tuổi</label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="film_rating" disabled>
+                                <input type="text" class="form-control" id="film_rating" name="film_rating" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Giá đơn vị</label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="film_rental_rate" disabled>
+                                <input type="text" class="form-control" id="film_rental_rate" name="film_rental_rate" disabled>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-lg-3 control-label">Thời hạn mượn (ngày)</label>
                             <div class="col-lg-6">
-                                <input type="text" class="form-control" name="film_rental_duration" disabled>
+                                <input type="text" class="form-control" id="film_rental_duration" name="film_rental_duration" disabled>
                             </div>
                         </div>
                     </fieldset>
@@ -91,7 +91,7 @@
                             <div class="col-lg-10">
                                 Tổng tiền (Giá đơn vị * Thời hạn mượn):
                             </div>
-                            <div class="col-lg-2"><strong>$30</strong></div>
+                            <div class="col-lg-2"><strong id="total">$30</strong></div>
                         </div>
                     </fieldset>
                     <div class="form-group">
@@ -107,5 +107,22 @@
 
     <script src="resources/vendor/jquery.js"></script>
     <script src="resources/vendor/bootstrap/bootstrap.min.js"></script>
+    <script>
+        function laythongtinphim() {
+            var maDP = $('#inventory_id').val();
+            $.ajax({
+                url: "ajax.php?action=laydiaphim&madiaphim=" + maDP,
+                success: function(data) {
+                    console.log(data);
+                    $('#film_name').val(data['Ten']);
+                    $('#film_release_date').val(data['NamPhatHanh']);
+                    $('#film_rating').val(data['XepLoai']);
+                    $('#film_rental_rate').val(data['GiaDonVi']);
+                    $('#film_rental_duration').val(data['ThoiHanTra']);
+                    $('#total').text($('#film_rental_rate').val() * $('#film_rental_duration').val());
+                }
+            });
+        }
+    </script>
 </body>
 </html>
