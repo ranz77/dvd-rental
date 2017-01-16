@@ -2,7 +2,7 @@
 //connect to db
 define ("DB_HOST","127.0.0.1");
 define ("DB_USER","root");
-define ("DB_PASS","buiquangcuong");
+define ("DB_PASS","");
 define ("DB_NAME","dvd_rental");
 define ("DB_PORT", 3306);
 define ("DB_SOCK", '/var/run/mysqld/mysqld.sock');
